@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 # Questionary
+=======
+# Questionary app
+>>>>>>> 36799ded634bf5aa2c2946456843d953fc256d52
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.3.17.
 
