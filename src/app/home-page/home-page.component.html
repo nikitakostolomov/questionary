@@ -26,7 +26,7 @@
           <input type="submit" class="btn-outline-primary btn" value="Отправить" (click)="sendQuestionBlank()" *ngIf="!idBlank">
       </ng-template>
       <div *ngIf="idBlank">
-        <p class="text-center">Присвоен id: {{idBlank}}</p>
+        <p class="text-center">Присвоен id: {{idBlank}}. Скопируйте его, чтобы пройти тест</p>
         <p><a routerLink="/blank">Пройти тест</a></p>
       </div>
     </div>

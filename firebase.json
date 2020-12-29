@@ -8,7 +8,7 @@
     ]
   },
   "hosting": {
-    "public": "dist/egorka",
+    "public": "dist/Questionary",
     "ignore": [
       "firebase.json",
       "**/.*",

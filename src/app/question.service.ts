@@ -46,9 +46,8 @@ export class QuestionService {
     
 
     serachInBd(id: string) {
-        this.db.object('/lists/' + id).valueChanges().subscribe(details => {
-            console.log(details["questions"])
-          });
+
+
        
         return this.db.object('/lists/' + id).valueChanges();
 

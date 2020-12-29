@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "egorka": {
+    "Questionary": {
       "projectType": "application",
       "schematics": {},
       "root": "",
@@ -13,7 +13,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/egorka",
+            "outputPath": "dist/Questionary",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -64,18 +64,18 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "egorka:build"
+            "browserTarget": "Questionary:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "egorka:build:production"
+              "browserTarget": "Questionary:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "egorka:build"
+            "browserTarget": "Questionary:build"
           }
         },
         "test": {
@@ -112,15 +112,15 @@
           "builder": "@angular-devkit/build-angular:protractor",
           "options": {
             "protractorConfig": "e2e/protractor.conf.js",
-            "devServerTarget": "egorka:serve"
+            "devServerTarget": "Questionary:serve"
           },
           "configurations": {
             "production": {
-              "devServerTarget": "egorka:serve:production"
+              "devServerTarget": "Questionary:serve:production"
             }
           }
         }
       }
     }},
-  "defaultProject": "egorka"
+  "defaultProject": "Questionary"
 }
