@@ -1,0 +1,7 @@
+{
+  "/api": {
+    "target": "https://us-central1-questionaire-1aac2.cloudfunctions.net/app",
+    "secure" : false,
+    "logLevel": "debug"
+  }
+}

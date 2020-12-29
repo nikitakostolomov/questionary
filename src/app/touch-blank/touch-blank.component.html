@@ -1,0 +1,59 @@
+<div class="container">
+  <div class="row rowForm alert alert-info">
+    <div class="col-12" *ngIf="!blank; else showBlank">
+      <form class="form-inline">
+        <input class="form-control" type="search" placeholder="Введите id опроса" aria-label="Search" #seacrhInput>
+        <button class="btn btn-outline-success my-2 my-sm-0" type="submit" (click)="search(seacrhInput)">Найти</button>
+      </form>
+    </div>
+  </div>
+  <ng-template #showBlank>
+    <p>Опрос: {{idBlonk}}</p>
+    <div class="col-12">
+      <div class="progress">
+        <div class="progress-bar" role="progressbar" [style.width]="progres + '%'" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+      </div>
+    </div>
+      <div class="col-12" *ngIf="blank[numberPage]">
+        <form  [formGroup]="form"  (ngSubmit)="nextPage(form, blank[numberPage].question)">
+        <br>
+        <p>{{blank[numberPage].question}}</p>
+        <div class="form-check" *ngIf="blank[numberPage].answer1">
+          <input class="form-check-input" type="radio" id="exampleRadios1" [value]="blank[numberPage].answer1" formControlName="answer">
+          <label class="form-check-label" for="exampleRadios1">
+            {{blank[numberPage].answer1}}
+          </label>
+        </div>
+        <div class="form-check" *ngIf="blank[numberPage].answer2">
+          <input class="form-check-input" type="radio"  id="exampleRadios2" [value]="blank[numberPage].answer2"  formControlName="answer">
+          <label class="form-check-label" for="exampleRadios2">
+            {{blank[numberPage].answer2}}
+          </label>
+        </div>
+        <div class="form-check" *ngIf="blank[numberPage].answer3">
+          <input class="form-check-input" type="radio" id="exampleRadios3" [value]="blank[numberPage].answer3"  formControlName="answer">
+          <label class="form-check-label" for="exampleRadios3">
+            {{blank[numberPage].answer3}}
+          </label>
+        </div>
+        <div class="form-check" *ngIf="blank[numberPage].answer4">
+          <input class="form-check-input" type="radio" id="exampleRadios4" [value]="blank[numberPage].answer4"  formControlName="answer">
+          <label class="form-check-label" for="exampleRadios4">
+            {{blank[numberPage].answer4}}
+          </label>
+        </div>
+        <hr>
+          <input type="submit" value="Далее" class="btn btn-outline-primary btn-sm" [disabled]="stopNextButton">
+        </form>
+      </div>
+    <div class="col-12">
+      <div class="result" *ngIf="!blank[numberPage]">
+        <br>
+        <p>Вы успешно прошли тест!</p>
+        <p>Отправьте нам результаты</p>
+      
+        <input type="submit" class="btn btn-outline-primary" value="Отправить" (click)="sendData()">
+      </div>
+    </div>
+  </ng-template>
+</div>

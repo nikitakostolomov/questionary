@@ -1,0 +1,41 @@
+<div class="container">  
+    <div class="row rowForm alert alert-info">
+      <div class="col-12" *ngIf="!blank; else showBlank">
+        <form class="form-inline">
+          <input class="form-control" type="search" placeholder="" aria-label="Search" #seacrhInput>
+          <button class="btn btn-outline-success my-2 my-sm-0" type="submit" (click)="search(seacrhInput)">Найти</button>
+        </form>
+      </div>
+    </div>
+    <div class="alert alert-danger alertError" role="alert" *ngIf="error">
+        {{error}}
+    </div>
+    <ng-template #showBlank>
+     <p>  Ответы на опрос: {{idBlonk}} </p>
+      <div class="col-12">
+        <div class="progress">
+          <div class="progress-bar" role="progressbar" [style.width]="progres + '%'" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+        </div>
+      </div>
+
+     
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th scope="col"> Participant of test</th>
+            <th *ngFor="let item of questions" scope="col">{{item.question}}</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let item of blank | keyvalue">
+            
+            <td>{{item.value.sender}}</td>
+            <td *ngFor="let obj of item.value.answers">{{obj.answer}}</td>
+          </tr>
+        </tbody>
+      </table>
+        
+      
+    </ng-template>
+  </div>
+  

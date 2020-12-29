@@ -1,0 +1,34 @@
+<div class="container">
+  <div class="row rowForm alert alert-primary">
+    <div class="col-12">
+      <form class="form" [formGroup]="form" (ngSubmit)="setCount()" *ngIf="!questions.length; else setQuestions">
+        <input type="number" placeholder="Колличество вопросов" class="form-control w-50" formControlName="count">
+        <input class="btn btn-outline-primary btnNext" type="submit" [disabled]="form.controls['count'].invalid"
+               value="Далее">
+      </form>
+      <ng-template #setQuestions>
+          <div class="questions" *ngFor="let item of questions; let i = index" >
+            <form [formGroup]="QuestionsForm" (ngSubmit)="saveQuestions(QuestionsForm, i)" *ngIf="!questions[i].question && !idBlank">
+            <p class="LabelNumberQuestion text-primary">Вопрос №{{i + 1}}</p>
+            <div class="question">
+              <input type="text" class="form-control" [placeholder]="'Вопрос №'+(i+1)" formControlName="question">
+            </div>
+            <div class="answer">
+              <input class="form-control answerInput" type="text" placeholder="Вариант ответа" formControlName="answer1" >
+              <input class="form-control answerInput" type="text" placeholder="Вариант ответа" formControlName="answer2">
+              <input class="form-control answerInput" type="text" placeholder="Вариант ответа" formControlName="answer3">
+              <input class="form-control answerInput" type="text" placeholder="Вариант ответа" formControlName="answer4">
+            </div>
+              <input class="btn btn-outline-success btn-sm" type="submit" value="Сохранить" [disabled]="questions[i].question">
+            <hr>
+            </form>
+          </div>
+          <input type="submit" class="btn-outline-primary btn" value="Отправить" (click)="sendQuestionBlank()" *ngIf="!idBlank">
+      </ng-template>
+      <div *ngIf="idBlank">
+        <p class="text-center">Присвоен id: {{idBlank}}</p>
+        <p><a routerLink="/blank">Пройти тест</a></p>
+      </div>
+    </div>
+  </div>
+</div>
